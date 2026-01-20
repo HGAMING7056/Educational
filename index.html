@@ -6,7 +6,6 @@
     <title>My First Website</title>
 
     <style>
-        /* THEME COLORS */
         :root {
             --bg: #ffffff;
             --text: #000000;
@@ -53,7 +52,6 @@
             background-color: #555;
         }
 
-        /* FIXED BUTTONS */
         #darkModeToggle {
             position: fixed;
             top: 20px;
@@ -105,27 +103,21 @@
     <h1>Hello! Welcome to My Website</h1>
     <p>This is an Educational Website</p>
 
-    <!-- ITACHI BACKGROUND BUTTON -->
     <button id="itachiBtn">Itachi Mode 🔥</button>
-
-    <!-- DARK MODE BUTTON -->
     <button id="darkModeToggle">Dark Mode 🌙</button>
 
-    <!-- Buttons -->
     <div class="buttons-container">
         <button onclick="window.location.href='books_and_author.html';">Books & Authors</button>
         <button onclick="window.location.href='BIKES^SCOOTY.HTML';">Bikes & Scooty</button>
         <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
     </div>
 
-    <!-- ABOUT ME -->
     <div class="about-me">
         <h2>About Website</h2>
         <p>This Website is created with ❤️ using <strong>ChatGPT</strong> and me!</p>
         <p>This website helps students explore Books, Cars, Bikes and more.</p>
     </div>
 
-    <!-- Contact Section -->
     <div class="contact-section" style="margin-top:150px;">
         <h2>Contact Me</h2>
         <p>Email: <a href="mailto:itsflantic@gmail.com">itsflantic@gmail.com</a></p>
@@ -141,96 +133,24 @@
         Made with ❤ by <strong>Rana..</strong>
     </div>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        function copyIP() {
-            navigator.clipboard.writeText("ShardMC0.aternos.me:52067");
-            alert("IP Copied!");
-        }
-
-        document.getElementById("darkModeToggle").onclick = function () {
-            document.body.classList.toggle("dark");
-            this.innerText = document.body.classList.contains("dark")
-                ? "Light Mode ☀️"
-                : "Dark Mode 🌙";
-        };
-
-        document.getElementById("itachiBtn").onclick = function () {
-            document.body.style.backgroundImage = "url('itachi.jpg.png')";
-            document.body.style.backgroundSize = "cover";
-        };
-    </script>
-
-    <!-- AI Button -->
-<button id="aiBtn" style="
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: black;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-">🤖 AI Chat</button>
-
-<!-- AI Chat Box -->
-<div id="aiBox" style="
-    display:none;
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    width: 320px;
-    height: 420px;
-    background: white;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-">
-    <div id="chatOutput" style="
-        height: 300px;
-        overflow-y: auto;
-        border: 1px solid #ccc;
-        padding: 5px;
-        font-size: 14px;
-    "></div>
-
-    <input id="userInput" type="text" style="
-        width: 90%;
-        padding: 10px;
-        margin-top: 10px;
-    " placeholder="Ask something...">
-
-    <button onclick="askAI()" style="
-        margin-top: 10px;
-        padding: 10px 20px;
-    ">Send</button>
-</div>
-
 <script>
-document.getElementById("aiBtn").onclick = () => {
-    const box = document.getElementById("aiBox");
-    box.style.display = box.style.display === "none" ? "block" : "none";
+function copyIP() {
+    navigator.clipboard.writeText("ShardMC0.aternos.me:52067");
+    alert("IP Copied!");
+}
+
+document.getElementById("darkModeToggle").onclick = function () {
+    document.body.classList.toggle("dark");
+    this.innerText = document.body.classList.contains("dark")
+        ? "Light Mode ☀️"
+        : "Dark Mode 🌙";
 };
 
-async function askAI() {
-    let question = document.getElementById("userInput").value;
-    if (!question) return;
-
-    document.getElementById("chatOutput").innerHTML += "<p><b>You:</b> " + question + "</p>";
-
-    let response = await fetch("https://herogpt-api.vercel.app/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: question })
-    });
-
-    let data = await response.json();
-    let answer = data.reply || "No response";
-
-    document.getElementById("chatOutput").innerHTML += "<p><b>AI:</b> " + answer + "</p>";
-}
+document.getElementById("itachiBtn").onclick = function () {
+    document.body.style.backgroundImage = "url('itachi.jpg.png')";
+    document.body.style.backgroundSize = "cover";
+};
 </script>
 
 </body>
 </html>
-

@@ -1,233 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My First Website</title>
 
-    <style>
-        /* THEME COLORS */
-        :root {
-            --bg: #ffffff;
-            --text: #000000;
-            --button-bg: #28a745;
-            --button-text: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --footer-bg: #e9ecef;
-        }
-
-        body.dark {
-            --bg: #121212;
-            --text: #f1f1f1;
-            --button-bg: #333333;
-            --button-text: #ffffff;
-            --card-bg: rgba(40, 40, 40, 0.8);
-            --footer-bg: #1f1f1f;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 30px;
-            background: var(--bg);
-            color: var(--text);
-            transition: background 0.3s;
-        }
-
-        h1 { color: #007bff; }
-
-        button {
-            padding: 15px 30px;
-            font-size: 20px;
-            cursor: pointer;
-            border-radius: 8px;
-            background-color: var(--button-bg);
-            color: var(--button-text);
-            border: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: 0.3s;
-        }
-
-        button:hover {
-            transform: scale(1.08);
-            background-color: #555;
-        }
-
-        /* FIXED BUTTONS */
-        #darkModeToggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #000;
-            color: #fff;
-            z-index: 9999;
-        }
-
-        #itachiBtn {
-            position: fixed;
-            top: 20px;
-            right: 180px;
-            background: black;
-            color: white;
-            padding: 12px 22px;
-            font-size: 18px;
-            border-radius: 8px;
-            z-index: 9999;
-        }
-
-        .buttons-container {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 10%;
-            margin-top: 20px;
-        }
-
-        .about-me {
-            margin: 50px auto;
-            width: 60%;
-            padding: 20px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-        }
-
-        .footer {
-            margin-top: 40px;
-            padding: 15px;
-            background: var(--footer-bg);
-            border-radius: 10px;
-        }
-    </style>
+<style>
+:root{
+    --bg:#ffffff;
+    --text:#000000;
+    --btn:#28a745;
+}
+body.dark{
+    --bg:#121212;
+    --text:#f1f1f1;
+    --btn:#333;
+}
+body{
+    font-family:Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    text-align:center;
+    margin:30px;
+}
+button{
+    padding:12px 20px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:var(--btn);
+    color:white;
+}
+#darkModeToggle{
+    position:fixed;
+    top:20px;
+    right:20px;
+}
+#aiBtn{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:black;
+}
+#aiBox{
+    display:none;
+    position:fixed;
+    bottom:100px;
+    right:30px;
+    width:320px;
+    height:420px;
+    background:white;
+    border-radius:10px;
+    padding:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+#chatOutput{
+    height:300px;
+    overflow-y:auto;
+    border:1px solid #ccc;
+    padding:5px;
+    font-size:14px;
+}
+</style>
 </head>
 
 <body>
 
-    <h1>Hello! Welcome to My Website</h1>
-    <p>This is an Educational Website</p>
+<h1>Hello! Welcome to My Website</h1>
+<p>This is an Educational Website</p>
 
-    <!-- ITACHI BACKGROUND BUTTON -->
-    <button id="itachiBtn">Itachi Mode 🔥</button>
+<button id="darkModeToggle">Dark Mode 🌙</button>
 
-    <!-- DARK MODE BUTTON -->
-    <button id="darkModeToggle">Dark Mode 🌙</button>
+<!-- AI BUTTON -->
+<button id="aiBtn">🤖 AI Chat</button>
 
-    <!-- Buttons -->
-    <div class="buttons-container">
-        <button onclick="window.location.href='books_and_author.html';">Books & Authors</button>
-        <button onclick="window.location.href='BIKES^SCOOTY.HTML';">Bikes & Scooty</button>
-        <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
-    </div>
-
-    <!-- ABOUT ME -->
-    <div class="about-me">
-        <h2>About Website</h2>
-        <p>This Website is created with ❤️ using <strong>ChatGPT</strong> and me!</p>
-        <p>This website helps students explore Books, Cars, Bikes and more.</p>
-    </div>
-
-    <!-- Contact Section -->
-    <div class="contact-section" style="margin-top:150px;">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:itsflantic@gmail.com">itsflantic@gmail.com</a></p>
-
-        <h3>ADDITIONAL:</h3>
-        <p><strong>Minecraft Server (Cracked + Bedrock + Java)</strong></p>
-        <p>Progress: 50%</p>
-        <p>IP: <strong>ShardMC0.aternos.me:52067</strong></p>
-        <button onclick="copyIP()">Copy IP</button>
-    </div>
-
-    <div class="footer">
-        Made with ❤ by <strong>Rana..</strong>
-    </div>
-
-    <!-- JAVASCRIPT -->
-    <script>
-        function copyIP() {
-            navigator.clipboard.writeText("ShardMC0.aternos.me:52067");
-            alert("IP Copied!");
-        }
-
-        document.getElementById("darkModeToggle").onclick = function () {
-            document.body.classList.toggle("dark");
-            this.innerText = document.body.classList.contains("dark")
-                ? "Light Mode ☀️"
-                : "Dark Mode 🌙";
-        };
-
-        document.getElementById("itachiBtn").onclick = function () {
-            document.body.style.backgroundImage = "url('itachi.jpg.png')";
-            document.body.style.backgroundSize = "cover";
-        };
-    </script>
-
-    <!-- AI Button -->
-<button id="aiBtn" style="
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: black;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-">🤖 AI Chat</button>
-
-<!-- AI Chat Box -->
-<div id="aiBox" style="
-    display:none;
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    width: 320px;
-    height: 420px;
-    background: white;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-">
-    <div id="chatOutput" style="
-        height: 300px;
-        overflow-y: auto;
-        border: 1px solid #ccc;
-        padding: 5px;
-        font-size: 14px;
-    "></div>
-
-    <input id="userInput" type="text" style="
-        width: 90%;
-        padding: 10px;
-        margin-top: 10px;
-    " placeholder="Ask something...">
-
-    <button onclick="askAI()" style="
-        margin-top: 10px;
-        padding: 10px 20px;
-    ">Send</button>
+<!-- AI CHAT BOX -->
+<div id="aiBox">
+    <div id="chatOutput"></div>
+    <input id="userInput" type="text" placeholder="Ask something..."
+        style="width:90%;padding:10px;margin-top:10px;">
+    <br>
+    <button onclick="askAI()" style="margin-top:10px;">Send</button>
 </div>
 
 <script>
+document.getElementById("darkModeToggle").onclick = () => {
+    document.body.classList.toggle("dark");
+};
+
 document.getElementById("aiBtn").onclick = () => {
     const box = document.getElementById("aiBox");
     box.style.display = box.style.display === "none" ? "block" : "none";
 };
 
-async function askAI() {
-    let question = document.getElementById("userInput").value;
-    if (!question) return;
+async function askAI(){
+    const input = document.getElementById("userInput");
+    const chat = document.getElementById("chatOutput");
+    const msg = input.value.trim();
+    if(!msg) return;
 
-    document.getElementById("chatOutput").innerHTML += "<p><b>You:</b> " + question + "</p>";
+    chat.innerHTML += `<p><b>You:</b> ${msg}</p>`;
+    input.value = "";
 
-    let response = await fetch("https://herogpt-api.vercel.app/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: question })
-    });
+    try{
+        const res = await fetch(
+            "https://dentahindi9921.app.n8n.cloud/webhook/21f33a14-b5cb-4aff-afbf-5a0a01acb23f/chat",
+            {
+                method:"POST",
+                headers:{ "Content-Type":"application/json" },
+                body:JSON.stringify({ message: msg })
+            }
+        );
 
-    let data = await response.json();
-    let answer = data.reply || "No response";
+        const data = await res.json();
+        chat.innerHTML += `<p><b>AI:</b> ${data.reply || data.response || "No reply"}</p>`;
+        chat.scrollTop = chat.scrollHeight;
 
-    document.getElementById("chatOutput").innerHTML += "<p><b>AI:</b> " + answer + "</p>";
+    }catch(e){
+        chat.innerHTML += `<p style="color:red">AI not responding</p>`;
+    }
 }
 </script>
 

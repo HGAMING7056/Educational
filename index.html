@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+    <title>FOR EDUCATIONAL PURPOSE</title>
 
     <style>
         :root {
@@ -90,18 +90,163 @@
         }
 
         .footer {
+            
             margin-top: 40px;
             padding: 15px;
             background: var(--footer-bg);
             border-radius: 10px;
         }
+        html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#eef7ff,#dcefff);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    margin-bottom:40px;
+    background:var(--card-bg);
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#007bff;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:var(--text);
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00a2ff;
+}
+
+.hero{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.hero h1{
+    font-size:50px;
+}
+
+.hero p{
+    font-size:23px;
+}
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:50px;
+    margin-bottom:50px;
+    flex-wrap:wrap;
+}
+
+.stat-card{
+    width:170px;
+    padding:25px;
+    border-radius:15px;
+    background:var(--card-bg);
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-10px);
+}
+
+.stat-card h2{
+    color:#00a2ff;
+    font-size:42px;
+}
+
+#toast{
+    position:fixed;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#28a745;
+    color:white;
+    padding:15px 25px;
+    border-radius:10px;
+    display:none;
+    z-index:99999;
+}
+
+#loader{
+    position:fixed;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    background:#111;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:45px;
+    z-index:999999;
+}
     </style>
 </head>
 
 <body>
+    
+<div id="loader">
+    Atlantic Hub 🚀
+</div>
 
+<nav class="navbar">
+
+<div class="logo">
+🌊 Atlantic
+</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="books_and_author.html">Books</a>
+<a href="BIKES^SCOOTY.HTML">Bikes</a>
+<a href="CAR&MAKERS.html">Cars</a>
+</div>
+
+</nav>
+    
     <h1>Hello! Welcome to My Website</h1>
     <p>This is an Educational Website</p>
+    <div class="hero">
+
+<h1>🚀 Learn • Explore • Discover</h1>
+
+<p>
+Everything about Books, Bikes, Cars & Minecraft
+</p>
+
+<button onclick="window.scrollTo({
+top:500,
+behavior:'smooth'
+})">
+Explore Now
+</button>
+
+</div>
 
     <button id="itachiBtn">Itachi Mode 🔥</button>
     <button id="darkModeToggle">Dark Mode 🌙</button>
@@ -111,24 +256,73 @@
         <button onclick="window.location.href='BIKES^SCOOTY.HTML';">Bikes & Scooty</button>
         <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
     </div>
+    <div class="stats">
+
+<div class="stat-card">
+<h2>120+</h2>
+<p>Books</p>
+</div>
+
+<div class="stat-card">
+<h2>40+</h2>
+<p>Bikes</p>
+</div>
+
+<div class="stat-card">
+<h2>80+</h2>
+<p>Cars</p>
+</div>
+
+<div class="stat-card">
+<h2>24/7</h2>
+<p>Support</p>
+</div>
+
+</div>
 
     <div class="about-me">
         <h2>About Website</h2>
         <p>This Website is created with ❤️ using <strong>ChatGPT</strong> and me!</p>
-        <p>This website helps students explore Books, Cars, Bikes and more.</p>
+        <p>This website helps students explore(makers) Books, Cars, Bikes and more.</p>
     </div>
 
+    <div class="about-me">
+
+<h2>🎮 SHARD MC</h2>
+
+<p>
+Java + Bedrock + Cracked
+</p>
+
+<p>
+🟢 Status:
+<b>Offline</b>
+</p>
+
+<p>
+👥 Players:
+0 / 100000
+</p>
+
+<p>
+🌍 Version:
+1.20.1+
+</p>
+
+<p>
+📡 IP:
+<b>ShardMC0.aternos.me:52067</b>
+</p>
+
+<button onclick="copyIP()">
+📋 Copy Server IP
+</button>
+
+</div>
     <div class="contact-section" style="margin-top:150px;">
         <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:itsflantic@gmail.com">itsflantic@gmail.com</a></p>
-
-        <h3>ADDITIONAL:</h3>
-        <p><strong>Minecraft Server (Cracked + Bedrock + Java)</strong></p>
-        <p>Progress: 90%</p>
-        <p>IP: <strong>ShardMC0.aternos.me:52067</strong></p>
-        <button onclick="copyIP()">Copy IP</button>
-    </div>
-
+        <p>Email: <a href="mailto:itsflantic@gmail.com">herobrineyt7056z@gmail.com</a></p>
+        
     <div class="footer">
         Made with <strong>❤</strong> by <strong>Rana..</strong>
     </div>
